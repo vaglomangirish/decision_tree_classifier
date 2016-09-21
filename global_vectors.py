@@ -9,9 +9,15 @@ class GlobalVectors:
     # Every record will be of format [class_label, f1, f2, f3...]
     # where f1, f2, f3 are features.
 
+    feature_names = []
     feature_vectors = []
 
     def __init__(self):
+        return
+
+    @staticmethod
+    def set_feature_names(name_vector):
+        GlobalVectors.feature_names = name_vector
         return
 
     @staticmethod
@@ -22,5 +28,4 @@ class GlobalVectors:
     @staticmethod
     def append_to_feature_vector(vector):
         GlobalVectors.feature_vectors.append(vector)
-
         return
