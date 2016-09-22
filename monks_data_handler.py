@@ -10,8 +10,7 @@ class MonksDataHandler:
     def __init__(self):
        return
 
-    @classmethod
-    def import_monks_data(cls, index, data_type):
+    def import_monks_data(self, index, data_type):
         """
         Function to import the monk's data set
         Attribute information:
@@ -34,12 +33,13 @@ class MonksDataHandler:
         GlobalVectors.feature_names = name_vector
 
         # Reading the data set file to store data in feature_vector in the specified format.
-        with open(cls.monks_data_location + "/monks-" + index + "." + data_type) as monks_file_data:
+        with open(self.monks_data_location + "/monks-" + index + "." + data_type) as monks_file_data:
             for line in monks_file_data:
                 vector_arr = line.split(" ")
                 vector = vector_arr[1:8]
                 # print(vector)
                 GlobalVectors.append_to_feature_vector(vector)
+
 
 # Testing with main
 def main():

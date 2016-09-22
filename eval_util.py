@@ -14,8 +14,7 @@ class EvalUtil:
     def __init__(self):
         return
 
-    @classmethod
-    def get_entropy(cls, pos_count, neg_count):
+    def get_entropy(self, pos_count, neg_count):
         """
         Function to calculate entropy
         :param pos_count: Positive class count
@@ -33,10 +32,9 @@ class EvalUtil:
 
         return entropy
 
-    @classmethod
-    def get_information_gain(cls, data_set, feature_index):
+    def get_information_gain(self, data_set, feature_index):
 
-        entropy_s = cls.get_entropy(cls.get_total_positive(data_set), cls.get_total_negative(data_set))
+        entropy_s = self.get_entropy(self.get_total_positive(data_set), self.get_total_negative(data_set))
 
         feature_val_count_dict = {}
 
@@ -59,14 +57,13 @@ class EvalUtil:
         for value in feature_val_count_dict:
             total_value_count = feature_val_count_dict[value][0] + feature_val_count_dict[value][1]
             value_entropy_sum += (total_value_count/float(len(data_set))) \
-                           * cls.get_entropy(feature_val_count_dict[value][0], feature_val_count_dict[value][1])
+                           * self.get_entropy(feature_val_count_dict[value][0], feature_val_count_dict[value][1])
 
         info_gain = entropy_s - value_entropy_sum
 
         return info_gain
 
-    @classmethod
-    def get_total_positive(cls, data_set):
+    def get_total_positive(self, data_set):
 
         pos_count = 0
 
@@ -76,8 +73,7 @@ class EvalUtil:
 
         return pos_count
 
-    @classmethod
-    def get_total_negative(cls, data_set):
+    def get_total_negative(self, data_set):
 
         neg_count = 0
 
@@ -87,14 +83,13 @@ class EvalUtil:
 
         return neg_count
 
-    @classmethod
-    def get_split_attribute_index(cls, data_set, index_list):
+    def get_split_attribute_index(self, data_set, index_list):
 
         max_info_gain = None
         max_info_gain_index = None
 
         for index in index_list:
-            info_gain = cls.get_information_gain(data_set, index)
+            info_gain = self.get_information_gain(data_set, index)
             if max_info_gain is None or info_gain > max_info_gain:
                 max_info_gain = info_gain
                 max_info_gain_index = index

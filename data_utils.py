@@ -2,13 +2,13 @@ __author__ = 'mangirish_wagle'
 
 from global_vectors import GlobalVectors
 
+
 class DataUtils:
 
     def __init__(self):
         return
 
-    @classmethod
-    def get_data_subset(cls, data_set, feature_index, feature_value):
+    def get_data_subset(self, data_set, feature_index, feature_value):
         subset = []
 
         for data_item in data_set:
@@ -17,8 +17,7 @@ class DataUtils:
 
         return subset
 
-    @classmethod
-    def get_feature_discrete_values(cls, data_set, feature_index):
+    def get_feature_discrete_values(self, data_set, feature_index):
 
         feature_values = []
 
@@ -28,8 +27,7 @@ class DataUtils:
 
         return feature_values
 
-    @classmethod
-    def get_pos_neg_count(cls, data_set):
+    def get_pos_neg_count(self, data_set):
 
         positive_count = 0
         negative_count = 0
