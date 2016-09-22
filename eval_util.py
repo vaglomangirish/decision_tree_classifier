@@ -7,10 +7,6 @@ import math
 
 
 class EvalUtil:
-
-    POSITIVE_VALUE = "1"
-    NEGATIVE_VALUE = "0"
-
     """
     Class that provides utility methods for evaluation of data.
     """
@@ -53,9 +49,9 @@ class EvalUtil:
                 feature_val_count_dict[feature_val] = [0, 0]
 
             # Update positive/ negative count
-            if class_val == cls.POSITIVE_VALUE:
+            if class_val == GlobalVectors.POSITIVE_VALUE:
                 feature_val_count_dict[feature_val][0] += 1
-            elif class_val == cls.NEGATIVE_VALUE:
+            elif class_val == GlobalVectors.NEGATIVE_VALUE:
                 feature_val_count_dict[feature_val][1] += 1
 
         value_entropy_sum = 0
@@ -75,7 +71,7 @@ class EvalUtil:
         pos_count = 0
 
         for vector in data_set:
-            if vector[0] == cls.POSITIVE_VALUE:
+            if vector[0] == GlobalVectors.POSITIVE_VALUE:
                 pos_count += 1
 
         return pos_count
@@ -86,13 +82,13 @@ class EvalUtil:
         neg_count = 0
 
         for vector in data_set:
-            if vector[0] == cls.NEGATIVE_VALUE:
+            if vector[0] == GlobalVectors.NEGATIVE_VALUE:
                 neg_count += 1
 
         return neg_count
 
     @classmethod
-    def get_split_attribute(cls, data_set, index_list):
+    def get_split_attribute_index(cls, data_set, index_list):
 
         max_info_gain = None
         max_info_gain_index = None
@@ -105,13 +101,14 @@ class EvalUtil:
 
         return max_info_gain_index
 
+
 # Testing with main
 def main():
     monks_handler = MonksDataHandler()
     monks_handler.import_monks_data("1", "train")
     evalutil = EvalUtil()
 
-    attr = evalutil.get_split_attribute(GlobalVectors.feature_vectors, [1,2,3,4,5,6])
+    attr = evalutil.get_split_attribute_index(GlobalVectors.feature_vectors, [1,3,6])
     print(attr)
 
 if __name__ == "__main__": main()

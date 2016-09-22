@@ -12,6 +12,9 @@ class GlobalVectors:
     feature_names = []
     feature_vectors = []
 
+    POSITIVE_VALUE = "1"
+    NEGATIVE_VALUE = "0"
+
     def __init__(self):
         return
 
@@ -29,3 +32,9 @@ class GlobalVectors:
     def append_to_feature_vector(vector):
         GlobalVectors.feature_vectors.append(vector)
         return
+
+    @staticmethod
+    def append_to_feature_vector(vector):
+        GlobalVectors.feature_vectors.append(vector)
+        return
+
