@@ -8,7 +8,7 @@ class DataImportHandler:
     monks_data_location = "datasets/monks"
 
     def __init__(self):
-       return
+        return
 
     def import_monks_data(self, index, data_type):
         """
@@ -85,4 +85,5 @@ def main():
     print(GlobalVectors.feature_names)
     print(GlobalVectors.test_feature_vectors)
 
-if __name__ == "__main__": main()
+if __name__ == "__main__":
+    main()

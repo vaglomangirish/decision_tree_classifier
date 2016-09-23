@@ -7,6 +7,7 @@ from learn_tree import LearnTree
 from test_util import TestUtil
 from global_vectors import GlobalVectors
 
+
 class Main:
 
     monks_data_location = "datasets/monks"
@@ -58,7 +59,6 @@ class Main:
 
         print("--------------------------")
 
-        # Monk 1
         print("Showing analysis for Monks-1 and depth 1")
         self.print_analysis_for_depth(self.monks_data_location +
                                       "/monks-1.train", self.monks_data_location + "/monks-1.test", 1)
@@ -75,8 +75,20 @@ class Main:
         self.print_analysis_for_depth(self.monks_data_location +
                                       "/monks-1.train", self.monks_data_location + "/monks-1.test", 3)
 
+        print("--------------------------")
+
+        print("Showing analysis for Monks-1 and depth 4")
+        self.print_analysis_for_depth(self.monks_data_location +
+                                      "/monks-1.train", self.monks_data_location + "/monks-1.test", 4)
+
         print("###########################")
         # Monk 2
+        print("Showing analysis for Monks-2 and depth 0")
+        self.print_analysis_for_depth(self.monks_data_location +
+                                      "/monks-2.train", self.monks_data_location + "/monks-2.test", 0)
+
+        print("--------------------------")
+
         print("Showing analysis for Monks-2 and depth 1")
         self.print_analysis_for_depth(self.monks_data_location +
                                       "/monks-2.train", self.monks_data_location + "/monks-2.test", 1)
@@ -93,8 +105,21 @@ class Main:
         self.print_analysis_for_depth(self.monks_data_location +
                                       "/monks-2.train", self.monks_data_location + "/monks-2.test", 3)
 
+        print("--------------------------")
+
+        print("Showing analysis for Monks-2 and depth 4")
+        self.print_analysis_for_depth(self.monks_data_location +
+                                      "/monks-2.train", self.monks_data_location + "/monks-2.test", 4)
+
         print("###########################")
         # Monk 3
+
+        print("Showing analysis for Monks-3 and depth 0")
+        self.print_analysis_for_depth(self.monks_data_location +
+                                      "/monks-3.train", self.monks_data_location + "/monks-3.test", 0)
+
+        print("--------------------------")
+
         print("Showing analysis for Monks-3 and depth 1")
         self.print_analysis_for_depth(self.monks_data_location +
                                       "/monks-3.train", self.monks_data_location + "/monks-3.test", 1)
@@ -111,6 +136,12 @@ class Main:
         self.print_analysis_for_depth(self.monks_data_location +
                                       "/monks-3.train", self.monks_data_location + "/monks-3.test", 3)
 
+        print("--------------------------")
+
+        print("Showing analysis for Monks-3 and depth 4")
+        self.print_analysis_for_depth(self.monks_data_location +
+                                      "/monks-3.train", self.monks_data_location + "/monks-3.test", 4)
+
     def print_analysis_for_cars(self):
         """
         This function prints info for custom dataset (Cars)
@@ -122,17 +153,33 @@ class Main:
         print("   CUSTOM CARS DATA SET   ")
         print("###########################################")
 
+        print("Showing analysis for cars and depth 0")
+        self.print_analysis_for_depth(self.cars_data_location +
+                                      "/car_data_1.train", self.cars_data_location + "/car_data_1.test", 0)
+
+        print("--------------------------")
+
         print("Showing analysis for cars and depth 1")
         self.print_analysis_for_depth(self.cars_data_location +
                                       "/car_data_1.train", self.cars_data_location + "/car_data_1.test", 1)
+
+        print("--------------------------")
 
         print("Showing analysis for cars and depth 2")
         self.print_analysis_for_depth(self.cars_data_location +
                                       "/car_data_1.train", self.cars_data_location + "/car_data_1.test", 2)
 
+        print("--------------------------")
+
         print("Showing analysis for cars and depth 3")
         self.print_analysis_for_depth(self.cars_data_location +
                                       "/car_data_1.train", self.cars_data_location + "/car_data_1.test", 3)
+
+        print("--------------------------")
+
+        print("Showing analysis for cars and depth 4")
+        self.print_analysis_for_depth(self.cars_data_location +
+                                      "/car_data_1.train", self.cars_data_location + "/car_data_1.test", 4)
 
 
 # Testing with main
@@ -141,4 +188,5 @@ def main():
     main_obj.print_analysis_for_monks()
     main_obj.print_analysis_for_cars()
 
-if __name__ == "__main__": main()
+if __name__ == "__main__":
+    main()

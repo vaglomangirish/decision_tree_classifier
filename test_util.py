@@ -12,16 +12,20 @@ class TestUtil:
         return
 
     def classify_data_item(self, data_item, decision_tree):
+        """
+        Function that classifies a data item from test data set by traversing the trained decision tree.
+        :param data_item:
+        :param decision_tree:
+        :return:
+        """
 
         test_data = TestData()
 
-        prev_node = None
         current_node = decision_tree
 
         split_feature_value = data_item[current_node.split_feature_index]
 
         while len(current_node.children) > 0 and split_feature_value in current_node.children:
-            prev_node =current_node
             current_node = current_node.children[split_feature_value]
 
         classified = current_node.class_label
@@ -40,6 +44,12 @@ class TestUtil:
         return test_data
 
     def classify_data_set(self, data_set, decision_tree):
+        """
+        Wrapper function to classify the test data set and creates the test data vector.
+        :param data_set:
+        :param decision_tree:
+        :return:
+        """
 
         GlobalVectors.clear_test_data_vector()
 
@@ -50,6 +60,10 @@ class TestUtil:
         # print(GlobalVectors.test_data_vector)
 
     def get_accuracy(self):
+        """
+        Function that returns accuracy of the constructed decision tree based on the test data set.
+        :return:
+        """
 
         correct_classification_count = 0
         for data_item in GlobalVectors.test_data_vector:
@@ -61,6 +75,10 @@ class TestUtil:
         return accuracy
 
     def get_true_negative_count(self):
+        """
+        Function that returns true negative count of the constructed decision tree based on the test data set.
+        :return:
+        """
 
         true_negative_count = 0
         for data_item in GlobalVectors.test_data_vector:
@@ -70,6 +88,10 @@ class TestUtil:
         return true_negative_count
 
     def get_true_positive_count(self):
+        """
+        Function that returns true positive of the constructed decision tree based on the test data set.
+        :return:
+        """
 
         true_positive_count = 0
         for data_item in GlobalVectors.test_data_vector:
@@ -79,6 +101,10 @@ class TestUtil:
         return true_positive_count
 
     def get_false_positive_count(self):
+        """
+        Function that returns false positive of the costructed decision tree based on the test data set.
+        :return:
+        """
 
         false_positive_count = 0
         for data_item in GlobalVectors.test_data_vector:
@@ -88,6 +114,10 @@ class TestUtil:
         return false_positive_count
 
     def get_false_negative_count(self):
+        """
+        Function that returns false negative of the costructed decision tree based on the test data set.
+        :return:
+        """
 
         false_negative_count = 0
         for data_item in GlobalVectors.test_data_vector:

@@ -26,13 +26,19 @@ class EvalUtil:
         prob_neg = neg_count/float(pos_count + neg_count)
 
         if prob_pos == 0.0 or prob_neg == 0.0:
-            return 0.0;
+            return 0.0
 
-        entropy = ( - prob_pos * math.log(prob_pos, 2) ) - ( prob_neg * math.log(prob_neg, 2) )
+        entropy = (- prob_pos * math.log(prob_pos, 2)) - (prob_neg * math.log(prob_neg, 2))
 
         return entropy
 
     def get_information_gain(self, data_set, feature_index):
+        """
+        Function that calculates information gain of a feature indicated by the index.
+        :param data_set:
+        :param feature_index:
+        :return:
+        """
 
         entropy_s = self.get_entropy(self.get_total_positive(data_set), self.get_total_negative(data_set))
 
@@ -57,13 +63,18 @@ class EvalUtil:
         for value in feature_val_count_dict:
             total_value_count = feature_val_count_dict[value][0] + feature_val_count_dict[value][1]
             value_entropy_sum += (total_value_count/float(len(data_set))) \
-                           * self.get_entropy(feature_val_count_dict[value][0], feature_val_count_dict[value][1])
+                            * self.get_entropy(feature_val_count_dict[value][0], feature_val_count_dict[value][1])
 
         info_gain = entropy_s - value_entropy_sum
 
         return info_gain
 
     def get_total_positive(self, data_set):
+        """
+        Function that returns total positive classifications
+        :param data_set:
+        :return:
+        """
 
         pos_count = 0
 
@@ -74,6 +85,11 @@ class EvalUtil:
         return pos_count
 
     def get_total_negative(self, data_set):
+        """
+        Function that returns total negative classifications.
+        :param data_set:
+        :return:
+        """
 
         neg_count = 0
 
@@ -84,6 +100,12 @@ class EvalUtil:
         return neg_count
 
     def get_split_attribute_index(self, data_set, index_list):
+        """
+        Function that returns the split attribute index for a node.
+        :param data_set:
+        :param index_list:
+        :return:
+        """
 
         max_info_gain = None
         max_info_gain_index = None
@@ -103,7 +125,8 @@ def main():
     monks_handler.import_monks_data("1", "train")
     evalutil = EvalUtil()
 
-    attr = evalutil.get_split_attribute_index(GlobalVectors.train_feature_vectors, [1,3,6])
+    attr = evalutil.get_split_attribute_index(GlobalVectors.train_feature_vectors, [1, 3, 6])
     print(attr)
 
-if __name__ == "__main__": main()
+if __name__ == "__main__":
+    main()

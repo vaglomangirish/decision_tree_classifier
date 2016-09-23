@@ -10,6 +10,13 @@ class DataUtils:
         return
 
     def get_data_subset(self, data_set, feature_index, feature_value):
+        """
+        Function that gets subset of the parent dataset based on the split feature index and value passed.
+        :param data_set:
+        :param feature_index:
+        :param feature_value:
+        :return:
+        """
         subset = []
 
         for data_item in data_set:
@@ -19,6 +26,12 @@ class DataUtils:
         return subset
 
     def get_feature_discrete_values(self, data_set, feature_index):
+        """
+        Function that returns all discrete values for a feature.
+        :param data_set:
+        :param feature_index:
+        :return:
+        """
 
         feature_values = []
 
@@ -29,6 +42,11 @@ class DataUtils:
         return feature_values
 
     def get_class_label(self, data_set):
+        """
+        Function that calculates the class label
+        :param data_set:
+        :return:
+        """
 
         label_count_dict = {}
 
@@ -55,9 +73,14 @@ class DataUtils:
 
         max_label_to_return = random.choice(max_labels)
 
-        return  max_label_to_return, is_pure_class
+        return max_label_to_return, is_pure_class
 
     def get_pos_neg_count(self, data_set):
+        """
+        Function that gets positive and negative count. (Currently not being used).
+        :param data_set:
+        :return:
+        """
 
         positive_count = 0
         negative_count = 0
