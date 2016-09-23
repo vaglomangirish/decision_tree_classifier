@@ -21,6 +21,8 @@ that constructs decision tree by taking in data set and max depth as inputs.
 - Data sets can be found and are picked up by the program from the 'datasets' directory.
 
 ## Some comments about the results
-- Acuracy plot for Monk-1 shows the expected behaviour of accuracy increasing with depth initially and then decreasing.
+- Sample output of the program has been included in results/sample_output.txt.
+- Accuracy plot for Monk-1 shows the expected behaviour of accuracy increasing with depth initially and then decreasing.
+- The weka.classifiers.trees.J48 runs on the Monks and Own data set cars can be found in results/weka directory.
 - The results for the own data set (cars) show a bias and hence the accuracy and confusion matrix remains constant
 with depth.

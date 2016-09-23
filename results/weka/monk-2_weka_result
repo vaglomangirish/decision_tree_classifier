@@ -1,0 +1,86 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     monks-2-train-weka.filters.unsupervised.attribute.Remove-R8-weka.filters.unsupervised.attribute.NumericToNominal-Rfirst-last
+Instances:    169
+Attributes:   7
+              att1
+              att2
+              att3
+              att4
+              att5
+              att6
+              att7
+Test mode:    user supplied test set:  size unknown (reading incrementally)
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+att5 = 1: 0 (54.0/15.0)
+att5 = 2
+|   att6 = 1
+|   |   att4 = 1: 0 (7.0/1.0)
+|   |   att4 = 2: 1 (5.0)
+|   att6 = 2
+|   |   att4 = 1
+|   |   |   att7 = 1: 0 (3.0/1.0)
+|   |   |   att7 = 2: 1 (4.0)
+|   |   att4 = 2
+|   |   |   att3 = 1: 1 (2.0)
+|   |   |   att3 = 2: 0 (3.0)
+|   |   |   att3 = 3: 0 (2.0)
+|   att6 = 3: 0 (17.0/6.0)
+|   att6 = 4: 0 (11.0/3.0)
+att5 = 3
+|   att4 = 1
+|   |   att6 = 1: 0 (7.0/1.0)
+|   |   att6 = 2: 1 (7.0/1.0)
+|   |   att6 = 3: 1 (9.0/4.0)
+|   |   att6 = 4
+|   |   |   att3 = 1: 0 (2.0)
+|   |   |   att3 = 2: 1 (3.0/1.0)
+|   |   |   att3 = 3: 1 (2.0)
+|   att4 = 2
+|   |   att7 = 1
+|   |   |   att2 = 1: 1 (4.0/1.0)
+|   |   |   att2 = 2: 0 (4.0/1.0)
+|   |   |   att2 = 3: 1 (4.0/1.0)
+|   |   att7 = 2: 0 (19.0/4.0)
+
+Number of Leaves  : 	20
+
+Size of the tree : 	31
+
+
+Time taken to build model: 0 seconds
+
+=== Evaluation on test set ===
+
+Time taken to test model on supplied test set: 0.01 seconds
+
+=== Summary ===
+
+Correctly Classified Instances         281               65.0463 %
+Incorrectly Classified Instances       151               34.9537 %
+Kappa statistic                          0.1516
+Mean absolute error                      0.4206
+Root mean squared error                  0.5053
+Relative absolute error                 91.6395 %
+Root relative squared error            106.934  %
+Total Number of Instances              432     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.803    0.662    0.713      0.803    0.755      0.155    0.597     0.732     0
+                 0.338    0.197    0.457      0.338    0.389      0.155    0.597     0.398     1
+Weighted Avg.    0.650    0.509    0.629      0.650    0.635      0.155    0.597     0.622     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 233  57 |   a = 0
+  94  48 |   b = 1
+
