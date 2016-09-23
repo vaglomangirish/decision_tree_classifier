@@ -103,7 +103,7 @@ def main():
     monks_handler.import_monks_data("1", "train")
     evalutil = EvalUtil()
 
-    attr = evalutil.get_split_attribute_index(GlobalVectors.feature_vectors, [1,3,6])
+    attr = evalutil.get_split_attribute_index(GlobalVectors.train_feature_vectors, [1,3,6])
     print(attr)
 
 if __name__ == "__main__": main()

@@ -9,7 +9,8 @@ class GlobalVectors:
     # Every record will be of format [class_label, f1, f2, f3...]
     # where f1, f2, f3 are features.
     feature_names = []
-    feature_vectors = []
+    train_feature_vectors = []
+    test_feature_vectors = []
 
     # Test vector would contain test data for each data point
     test_data_vector = []
@@ -27,16 +28,21 @@ class GlobalVectors:
 
     @staticmethod
     def set_feature_vector(vectors):
-        GlobalVectors.feature_vectors = vectors
+        GlobalVectors.train_feature_vectors = vectors
         return
 
     @staticmethod
     def append_to_feature_vector(vector):
-        GlobalVectors.feature_vectors.append(vector)
+        GlobalVectors.train_feature_vectors.append(vector)
         return
 
     @staticmethod
-    def append_to_feature_vector(vector):
-        GlobalVectors.feature_vectors.append(vector)
+    def append_to_train_feature_vector(vector):
+        GlobalVectors.train_feature_vectors.append(vector)
+        return
+
+    @staticmethod
+    def append_to_test_feature_vector(vector):
+        GlobalVectors.test_feature_vectors.append(vector)
         return
 

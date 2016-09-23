@@ -38,7 +38,11 @@ class MonksDataHandler:
                 vector_arr = line.split(" ")
                 vector = vector_arr[1:8]
                 # print(vector)
-                GlobalVectors.append_to_feature_vector(vector)
+
+                if data_type == "train":
+                    GlobalVectors.append_to_train_feature_vector(vector)
+                elif data_type == "test":
+                    GlobalVectors.append_to_test_feature_vector(vector)
 
 
 # Testing with main
@@ -46,6 +50,6 @@ def main():
     monks_handler = MonksDataHandler()
     monks_handler.import_monks_data("1", "test")
     print(GlobalVectors.feature_names)
-    print(GlobalVectors.feature_vectors)
+    print(GlobalVectors.test_feature_vectors)
 
 if __name__ == "__main__": main()

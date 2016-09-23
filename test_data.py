@@ -7,6 +7,7 @@ class TestData:
     """
 
     predicted_class = None
+    is_error = None
     is_false_positive = None
     is_false_negative = None
     is_true_positive = None

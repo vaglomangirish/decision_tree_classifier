@@ -5,6 +5,7 @@ from global_vectors import GlobalVectors
 from monks_data_handler import MonksDataHandler
 from eval_util import EvalUtil
 from data_utils import DataUtils
+from test_util import TestUtil
 
 
 class LearnTree:
@@ -46,7 +47,7 @@ class LearnTree:
         for index in xrange(1, len(data_set[0])):
             init_index_list.append(index)
 
-        self.decision_tree = self.create_node(GlobalVectors.feature_vectors, max_depth, init_index_list)
+        self.decision_tree = self.create_node(data_set, max_depth, init_index_list)
 
     def create_node(self, data_set, max_depth, feature_index_list):
 
@@ -73,8 +74,12 @@ class LearnTree:
         if not is_termination_condition:
             for value in split_feature_values:
                 data_subset = data_util.get_data_subset(data_set, max_info_gain_index, value)
-                child_node = self.create_node(data_subset, max_depth - 1, revised_index_list)
-                tree_node.append_child(value, child_node)
+                if len(data_subset) > 0:
+                    child_node = self.create_node(data_subset, max_depth - 1, revised_index_list)
+                    tree_node.append_child(value, child_node)
+                else:
+                    tree_node.append_child(value, None)
+
 
         return tree_node
 
@@ -83,13 +88,22 @@ class LearnTree:
 def main():
 
     monks_handler = MonksDataHandler()
-    monks_handler.import_monks_data("1", "train")
+    monks_handler.import_monks_data("", "train")
+    monks_handler.import_monks_data("1", "test")
+
     l_tree = LearnTree()
+    t_util = TestUtil()
 
-    l_tree.create_decision_tree(GlobalVectors.feature_vectors, 3)
-    #l_tree.is_pure_class(GlobalVectors.feature_vectors)
+    l_tree.create_decision_tree(GlobalVectors.train_feature_vectors, 6)
+    # l_tree.is_pure_class(GlobalVectors.feature_vectors)
 
-    print l_tree.decision_tree
+    t_util.classify_data_set(GlobalVectors.test_feature_vectors, l_tree.decision_tree)
+
+    # print(l_tree.decision_tree)
+
+    # print(GlobalVectors.test_data_vector)
+
+    print(t_util.get_accuracy())
 
 
 if __name__ == "__main__": main()
