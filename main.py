@@ -38,11 +38,13 @@ class Main:
         # Classifying test data.
         t_util.classify_data_set(GlobalVectors.test_feature_vectors, l_tree.decision_tree)
 
-        print("Decision tree json:")
+        print("")
+        print("Decision tree:")
         l_tree.print_decision_tree(l_tree.decision_tree)
 
         print("Accuracy for depth : " + str(t_util.get_accuracy()))
 
+        print("")
         print("Confusion matrix:")
         l_tree.print_confusion_matrix()
 
@@ -57,24 +59,28 @@ class Main:
         self.print_analysis_for_depth(self.monks_data_location +
                                       "/monks-1.train", self.monks_data_location + "/monks-1.test", 0)
 
+        print("")
         print("--------------------------")
 
         print("Showing analysis for Monks-1 and depth 1")
         self.print_analysis_for_depth(self.monks_data_location +
                                       "/monks-1.train", self.monks_data_location + "/monks-1.test", 1)
 
+        print("")
         print("--------------------------")
 
         print("Showing analysis for Monks-1 and depth 2")
         self.print_analysis_for_depth(self.monks_data_location +
                                       "/monks-1.train", self.monks_data_location + "/monks-1.test", 2)
 
+        print("")
         print("--------------------------")
 
         print("Showing analysis for Monks-1 and depth 3")
         self.print_analysis_for_depth(self.monks_data_location +
                                       "/monks-1.train", self.monks_data_location + "/monks-1.test", 3)
 
+        print("")
         print("--------------------------")
 
         print("Showing analysis for Monks-1 and depth 4")
@@ -87,24 +93,28 @@ class Main:
         self.print_analysis_for_depth(self.monks_data_location +
                                       "/monks-2.train", self.monks_data_location + "/monks-2.test", 0)
 
+        print("")
         print("--------------------------")
 
         print("Showing analysis for Monks-2 and depth 1")
         self.print_analysis_for_depth(self.monks_data_location +
                                       "/monks-2.train", self.monks_data_location + "/monks-2.test", 1)
 
+        print("")
         print("--------------------------")
 
         print("Showing analysis for Monks-2 and depth 2")
         self.print_analysis_for_depth(self.monks_data_location +
                                       "/monks-2.train", self.monks_data_location + "/monks-2.test", 2)
 
+        print("")
         print("--------------------------")
 
         print("Showing analysis for Monks-2 and depth 3")
         self.print_analysis_for_depth(self.monks_data_location +
                                       "/monks-2.train", self.monks_data_location + "/monks-2.test", 3)
 
+        print("")
         print("--------------------------")
 
         print("Showing analysis for Monks-2 and depth 4")
@@ -118,24 +128,28 @@ class Main:
         self.print_analysis_for_depth(self.monks_data_location +
                                       "/monks-3.train", self.monks_data_location + "/monks-3.test", 0)
 
+        print("")
         print("--------------------------")
 
         print("Showing analysis for Monks-3 and depth 1")
         self.print_analysis_for_depth(self.monks_data_location +
                                       "/monks-3.train", self.monks_data_location + "/monks-3.test", 1)
 
+        print("")
         print("--------------------------")
 
         print("Showing analysis for Monks-3 and depth 2")
         self.print_analysis_for_depth(self.monks_data_location +
                                       "/monks-3.train", self.monks_data_location + "/monks-3.test", 2)
 
+        print("")
         print("--------------------------")
 
         print("Showing analysis for Monks-3 and depth 3")
         self.print_analysis_for_depth(self.monks_data_location +
                                       "/monks-3.train", self.monks_data_location + "/monks-3.test", 3)
 
+        print("")
         print("--------------------------")
 
         print("Showing analysis for Monks-3 and depth 4")
@@ -148,7 +162,7 @@ class Main:
         :return:
         """
 
-        print("   ")
+        print("")
         print("###########################################")
         print("   CUSTOM CARS DATA SET   ")
         print("###########################################")
