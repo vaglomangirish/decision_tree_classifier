@@ -8,9 +8,11 @@ class GlobalVectors:
 
     # Every record will be of format [class_label, f1, f2, f3...]
     # where f1, f2, f3 are features.
-
     feature_names = []
     feature_vectors = []
+
+    # Test vector would contain test data for each data point
+    test_data_vector = []
 
     POSITIVE_VALUE = "1"
     NEGATIVE_VALUE = "0"
