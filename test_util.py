@@ -24,15 +24,7 @@ class TestUtil:
             prev_node =current_node
             current_node = current_node.children[split_feature_value]
 
-        pos_count = current_node.pos_neg[0]
-        neg_count = current_node.pos_neg[1]
-
-        classified = None
-        if pos_count == neg_count:
-            rand_num = randint(0,1000) % 2
-            classified = GlobalVectors.POSITIVE_VALUE #if rand_num == 1 else GlobalVectors.NEGATIVE_VALUE
-        else:
-            classified = GlobalVectors.POSITIVE_VALUE if pos_count > neg_count else GlobalVectors.NEGATIVE_VALUE
+        classified = current_node.class_label
 
         test_data.predicted_class = classified
         test_data.is_error = True if data_item[0] != classified else False

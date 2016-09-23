@@ -1,5 +1,8 @@
 __author__ = 'mangirish_wagle'
 
+import json
+from  pprint import pprint
+
 from tree_node import TreeNode
 from global_vectors import GlobalVectors
 from data_import_handler import DataImportHandler
@@ -15,29 +18,18 @@ class LearnTree:
     def __init__(self):
         return
 
-    def test_pure_class(self, data_set):
-
-        is_pure = False
-
-        data_utils = DataUtils()
-
-        positive, negative = data_utils.get_pos_neg_count(data_set)
-
-        if positive == 0 or negative == 0:
-            is_pure = True
-
-        return is_pure, positive, negative
-
     def test_termination_condition(self, data_set, max_depth, feature_index_list):
 
         termination = True
 
-        is_pure_class, positive, negative = self.test_pure_class(data_set)
+        d_util = DataUtils()
+
+        class_label, is_pure_class = d_util.get_class_label(data_set)
 
         if max_depth > 1 and feature_index_list is not None and len(feature_index_list) > 0 and not is_pure_class:
             termination = False
 
-        return termination, positive, negative
+        return termination, class_label
 
     def create_decision_tree(self, data_set, max_depth):
 
@@ -53,7 +45,7 @@ class LearnTree:
 
         # tree_node = None
 
-        is_termination_condition, positive, negative = self.test_termination_condition(data_set,
+        is_termination_condition, class_label = self.test_termination_condition(data_set,
                                                                                       max_depth, feature_index_list)
 
         tree_node = TreeNode()
@@ -67,7 +59,9 @@ class LearnTree:
 
         split_feature_values = data_util.get_feature_discrete_values(data_set, max_info_gain_index)
 
-        tree_node.set_pos_neg(positive, negative)
+        # tree_node.set_pos_neg(positive, negative)
+
+        tree_node.set_class_label(class_label)
 
         revised_index_list = [x for x in feature_index_list if x != max_info_gain_index]
 
@@ -81,6 +75,10 @@ class LearnTree:
                     tree_node.append_child(value, None)
 
         return tree_node
+
+    def print_decision_tree(self, decision_tree):
+        tree_json = json.dumps(decision_tree, indent=1, default=lambda o: o.__dict__)
+        pprint(tree_json)
 
     def print_confusion_matrix(self):
         t_util = TestUtil()
@@ -104,7 +102,7 @@ def main():
 
     t_util.classify_data_set(GlobalVectors.test_feature_vectors, l_tree.decision_tree)
 
-    # print(l_tree.decision_tree)
+    l_tree.print_decision_tree(l_tree.decision_tree)
 
     # print(GlobalVectors.test_data_vector)
 

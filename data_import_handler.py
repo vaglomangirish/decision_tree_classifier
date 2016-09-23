@@ -40,6 +40,7 @@ class DataImportHandler:
         # Reading the data set file to store data in feature_vector in the specified format.
         with open(self.monks_data_location + "/monks-" + index + "." + data_type) as monks_file_data:
             for line in monks_file_data:
+                line.strip()
                 vector_arr = line.split(" ")
                 vector = vector_arr[1:(len(vector_arr)-1)]
                 # print(vector)
@@ -65,8 +66,9 @@ class DataImportHandler:
         # Reading the data set file to store data in feature_vector in the specified format.
         with open(data_file_path) as monks_file_data:
             for line in monks_file_data:
+                line = line.strip()
                 vector_arr = line.split(" ")
-                vector = vector_arr[1:(len(vector_arr)-1)]
+                vector = vector_arr[0:(len(vector_arr)-2)]
                 # print(vector)
 
                 if data_type == "train":

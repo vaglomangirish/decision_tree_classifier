@@ -1,5 +1,7 @@
 __author__ = 'mangirish_wagle'
 
+from pprint import pprint
+
 from data_import_handler import DataImportHandler
 from learn_tree import LearnTree
 from test_util import TestUtil
@@ -34,12 +36,22 @@ class Main:
         # Classifying test data.
         t_util.classify_data_set(GlobalVectors.test_feature_vectors, l_tree.decision_tree)
 
+        print("Decision tree json:")
+        l_tree.print_decision_tree(l_tree.decision_tree)
+
         print("Accuracy for depth : " + str(t_util.get_accuracy()))
 
         print("Confusion matrix:")
         l_tree.print_confusion_matrix()
 
     def print_analysis_for_monks(self):
+
+        # Monk 1
+        print("Showing analysis for Monks-1 and depth 0")
+        self.print_analysis_for_depth(self.monks_data_location +
+                                      "/monks-1.train", self.monks_data_location + "/monks-1.test", 0)
+
+        print("--------------------------")
 
         # Monk 1
         print("Showing analysis for Monks-1 and depth 1")

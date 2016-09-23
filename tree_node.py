@@ -11,7 +11,9 @@ class TreeNode:
     children = {}
 
     # Positive and negative vector in the format [positive_count, negative_count]
-    pos_neg = [0, 0]
+    #pos_neg = [0, 0]
+
+    class_label = None
 
     def __init__(self):
         self.children = {}
@@ -25,4 +27,7 @@ class TreeNode:
 
     def set_pos_neg(self, positive, negative):
         self.pos_neg = [positive, negative]
+
+    def set_class_label(self, label):
+        self.class_label = label
 
