@@ -62,16 +62,17 @@ class DataUtils:
         # return class with highest count. If in case of conflict, return a random class with max count.
         max_labels = []
 
-        max_count = 0
+        max_count = -1
         for label in label_count_dict:
             if label_count_dict[label] > max_count:
                 del max_labels
                 max_labels = []
                 max_labels.append(label)
+                max_count = label_count_dict[label]
             elif label_count_dict[label] == max_count:
                 max_labels.append(label)
 
-        max_label_to_return = random.choice(max_labels)
+        max_label_to_return = max_labels[0]
 
         return max_label_to_return, is_pure_class
 
