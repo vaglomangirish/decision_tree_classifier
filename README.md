@@ -16,3 +16,5 @@ B659 Applied Machine Learning course at Indiana University Bloomington.
 - The program would work only for binary classification (1/0) and the dataset should have the first column as the class.
 - The Accuracy graph plots for various datasets versus their depths can be found in results directory,
 GraphPlot_AML_PA1.xlsx file.
+- create_decision_tree(self, data_set, max_depth) function in learn_tree.py is the injection point for the algorithm
+that constructs decision tree by taking in data set and max depth as inputs.
