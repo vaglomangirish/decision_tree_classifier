@@ -7,7 +7,7 @@ Metrics for Depth- 0
 Decision tree:
 'Split Feature Index: 5| Class:1'
 
-Accuracy for depth : 50.0
+Percentage Accuracy for depth : 50.0
 
 Confusion matrix:
                      Predicted Negative Predicted Positive
@@ -25,7 +25,7 @@ feature value: 3->      'Split Feature Index: 6| Class:0'
 feature value: 2->      'Split Feature Index: 4| Class:0'
 feature value: 4->      'Split Feature Index: 1| Class:0'
 
-Accuracy for depth : 75.0
+Percentage Accuracy for depth : 75.0
 
 Confusion matrix:
                      Predicted Negative Predicted Positive
@@ -51,7 +51,7 @@ feature value: 1->              'Split Feature Index: 2| Class:0'
 feature value: 3->              'Split Feature Index: 2| Class:1'
 feature value: 2->              'Split Feature Index: 2| Class:0'
 
-Accuracy for depth : 75.0
+Percentage Accuracy for depth : 75.0
 
 Confusion matrix:
                      Predicted Negative Predicted Positive
@@ -98,7 +98,7 @@ feature value: 1->                      'Split Feature Index: 3| Class:0'
 feature value: 3->                      'Split Feature Index: 3| Class:0'
 feature value: 2->                      'Split Feature Index: 3| Class:1'
 
-Accuracy for depth : 66.6666666667
+Percentage Accuracy for depth : 66.6666666667
 
 Confusion matrix:
                      Predicted Negative Predicted Positive
@@ -168,7 +168,7 @@ feature value: 1->                      'Split Feature Index: 3| Class:0'
 feature value: 3->                      'Split Feature Index: 3| Class:0'
 feature value: 2->                      'Split Feature Index: 3| Class:1'
 
-Accuracy for depth : 66.6666666667
+Percentage Accuracy for depth : 66.6666666667
 
 Confusion matrix:
                      Predicted Negative Predicted Positive
@@ -181,7 +181,7 @@ Metrics for Depth- 0
 Decision tree:
 'Split Feature Index: 5| Class:0'
 
-Accuracy for depth : 67.1296296296
+Percentage Accuracy for depth : 67.1296296296
 
 Confusion matrix:
                      Predicted Negative Predicted Positive
@@ -199,7 +199,7 @@ feature value: 3->      'Split Feature Index: 3| Class:0'
 feature value: 2->      'Split Feature Index: 3| Class:1'
 feature value: 4->      'Split Feature Index: 2| Class:0'
 
-Accuracy for depth : 59.7222222222
+Percentage Accuracy for depth : 59.7222222222
 
 Confusion matrix:
                      Predicted Negative Predicted Positive
@@ -226,7 +226,7 @@ feature value: 1->              'Split Feature Index: 6| Class:0'
 feature value: 3->              'Split Feature Index: 3| Class:0'
 feature value: 2->              'Split Feature Index: 1| Class:0'
 
-Accuracy for depth : 67.1296296296
+Percentage Accuracy for depth : 67.1296296296
 
 Confusion matrix:
                      Predicted Negative Predicted Positive
@@ -276,7 +276,7 @@ feature value: 1->                      'Split Feature Index: 4| Class:0'
 feature value: 3->                      'Split Feature Index: 3| Class:0'
 feature value: 2->                      'Split Feature Index: 3| Class:1'
 
-Accuracy for depth : 67.1296296296
+Percentage Accuracy for depth : 67.1296296296
 
 Confusion matrix:
                      Predicted Negative Predicted Positive
@@ -374,7 +374,7 @@ feature value: 2->                      'Split Feature Index: 3| Class:1'
 feature value: 1->                              'Split Feature Index: 4| Class:1'
 feature value: 2->                              'Split Feature Index: 6| Class:0'
 
-Accuracy for depth : 67.1296296296
+Percentage Accuracy for depth : 67.1296296296
 
 Confusion matrix:
                      Predicted Negative Predicted Positive
@@ -387,7 +387,7 @@ Metrics for Depth- 0
 Decision tree:
 'Split Feature Index: 2| Class:0'
 
-Accuracy for depth : 47.2222222222
+Percentage Accuracy for depth : 47.2222222222
 
 Confusion matrix:
                      Predicted Negative Predicted Positive
@@ -404,7 +404,7 @@ feature value: 1->      'Split Feature Index: 5| Class:1'
 feature value: 3->      'Split Feature Index: 4| Class:0'
 feature value: 2->      'Split Feature Index: 5| Class:1'
 
-Accuracy for depth : 80.5555555556
+Percentage Accuracy for depth : 80.5555555556
 
 Confusion matrix:
                      Predicted Negative Predicted Positive
@@ -432,7 +432,7 @@ feature value: 3->              'Split Feature Index: 3| Class:1'
 feature value: 2->              'Split Feature Index: 1| Class:1'
 feature value: 4->              'Split Feature Index: 1| Class:0'
 
-Accuracy for depth : 80.5555555556
+Percentage Accuracy for depth : 80.5555555556
 
 Confusion matrix:
                      Predicted Negative Predicted Positive
@@ -472,7 +472,7 @@ feature value: 3->                      'Split Feature Index: 3| Class:1'
 feature value: 2->                      'Split Feature Index: 4| Class:1'
 feature value: 4->              'Split Feature Index: 1| Class:0'
 
-Accuracy for depth : 80.5555555556
+Percentage Accuracy for depth : 80.5555555556
 
 Confusion matrix:
                      Predicted Negative Predicted Positive
@@ -523,7 +523,7 @@ feature value: 3->                              'Split Feature Index: 3| Class:1
 feature value: 2->                              'Split Feature Index: 3| Class:0'
 feature value: 4->              'Split Feature Index: 1| Class:0'
 
-Accuracy for depth : 63.8888888889
+Percentage Accuracy for depth : 63.8888888889
 
 Confusion matrix:
                      Predicted Negative Predicted Positive
@@ -539,7 +539,7 @@ Metrics for Depth- 0
 Decision tree:
 'Split Feature Index: 1| Class:0'
 
-Accuracy for depth : 90.0
+Percentage Accuracy for depth : 90.0
 
 Confusion matrix:
                      Predicted Negative Predicted Positive
@@ -556,7 +556,7 @@ feature value: med->    'Split Feature Index: 2| Class:0'
 feature value: vhigh->  'Split Feature Index: 2| Class:0'
 feature value: low->    'Split Feature Index: 2| Class:0'
 
-Accuracy for depth : 90.0
+Percentage Accuracy for depth : 90.0
 
 Confusion matrix:
                      Predicted Negative Predicted Positive
@@ -577,7 +577,7 @@ feature value: low->            'Split Feature Index: 4| Class:0'
 feature value: vhigh->  'Split Feature Index: 2| Class:0'
 feature value: low->    'Split Feature Index: 2| Class:0'
 
-Accuracy for depth : 90.0
+Percentage Accuracy for depth : 90.0
 
 Confusion matrix:
                      Predicted Negative Predicted Positive
@@ -604,7 +604,7 @@ feature value: more->                   'Split Feature Index: 5| Class:1'
 feature value: vhigh->  'Split Feature Index: 2| Class:0'
 feature value: low->    'Split Feature Index: 2| Class:0'
 
-Accuracy for depth : 90.0
+Percentage Accuracy for depth : 90.0
 
 Confusion matrix:
                      Predicted Negative Predicted Positive
@@ -643,7 +643,7 @@ feature value: big->                            'Split Feature Index: 3| Class:1
 feature value: vhigh->  'Split Feature Index: 2| Class:0'
 feature value: low->    'Split Feature Index: 2| Class:0'
 
-Accuracy for depth : 90.0
+Percentage Accuracy for depth : 90.0
 
 Confusion matrix:
                      Predicted Negative Predicted Positive
