@@ -26,7 +26,7 @@ class LearnTree:
 
         class_label, is_pure_class = d_util.get_class_label(data_set)
 
-        if max_depth > 1 and feature_index_list is not None and len(feature_index_list) > 0 and not is_pure_class:
+        if max_depth > 0 and feature_index_list is not None and len(feature_index_list) > 0 and not is_pure_class:
             termination = False
 
         return termination, class_label
@@ -46,7 +46,7 @@ class LearnTree:
         # tree_node = None
 
         is_termination_condition, class_label = self.test_termination_condition(data_set,
-                                                                                      max_depth, feature_index_list)
+                                                                                max_depth, feature_index_list)
 
         tree_node = TreeNode()
         eval_util = EvalUtil()
@@ -77,8 +77,7 @@ class LearnTree:
         return tree_node
 
     def print_decision_tree(self, decision_tree):
-        tree_json = json.dumps(decision_tree, indent=1, default=lambda o: o.__dict__)
-        pprint(tree_json)
+        print(decision_tree)
 
     def print_confusion_matrix(self):
         t_util = TestUtil()
@@ -97,7 +96,7 @@ def main():
     l_tree = LearnTree()
     t_util = TestUtil()
 
-    l_tree.create_decision_tree(GlobalVectors.train_feature_vectors, 3)
+    l_tree.create_decision_tree(GlobalVectors.train_feature_vectors, 4)
     # l_tree.is_pure_class(GlobalVectors.feature_vectors)
 
     t_util.classify_data_set(GlobalVectors.test_feature_vectors, l_tree.decision_tree)

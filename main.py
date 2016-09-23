@@ -10,6 +10,7 @@ from global_vectors import GlobalVectors
 class Main:
 
     monks_data_location = "datasets/monks"
+    cars_data_location = "datasets/cars"
 
     def __init__(self):
         return
@@ -45,6 +46,10 @@ class Main:
         l_tree.print_confusion_matrix()
 
     def print_analysis_for_monks(self):
+
+        print("###########################################")
+        print("   MONKS DATA SET   ")
+        print("###########################################")
 
         # Monk 1
         print("Showing analysis for Monks-1 and depth 0")
@@ -106,10 +111,34 @@ class Main:
         self.print_analysis_for_depth(self.monks_data_location +
                                       "/monks-3.train", self.monks_data_location + "/monks-3.test", 3)
 
+    def print_analysis_for_cars(self):
+        """
+        This function prints info for custom dataset (Cars)
+        :return:
+        """
+
+        print("   ")
+        print("###########################################")
+        print("   CUSTOM CARS DATA SET   ")
+        print("###########################################")
+
+        print("Showing analysis for cars and depth 1")
+        self.print_analysis_for_depth(self.cars_data_location +
+                                      "/car_data_1.train", self.cars_data_location + "/car_data_1.test", 1)
+
+        print("Showing analysis for cars and depth 2")
+        self.print_analysis_for_depth(self.cars_data_location +
+                                      "/car_data_1.train", self.cars_data_location + "/car_data_1.test", 2)
+
+        print("Showing analysis for cars and depth 3")
+        self.print_analysis_for_depth(self.cars_data_location +
+                                      "/car_data_1.train", self.cars_data_location + "/car_data_1.test", 3)
+
 
 # Testing with main
 def main():
     main_obj = Main()
     main_obj.print_analysis_for_monks()
+    main_obj.print_analysis_for_cars()
 
 if __name__ == "__main__": main()

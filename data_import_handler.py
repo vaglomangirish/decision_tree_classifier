@@ -42,7 +42,8 @@ class DataImportHandler:
             for line in monks_file_data:
                 line.strip()
                 vector_arr = line.split(" ")
-                vector = vector_arr[1:(len(vector_arr)-1)]
+                # ignoring last element for monks which is the id of the data point.
+                vector = vector_arr[1:(len(vector_arr)-2)]
                 # print(vector)
 
                 if data_type == "train":
@@ -68,7 +69,7 @@ class DataImportHandler:
             for line in monks_file_data:
                 line = line.strip()
                 vector_arr = line.split(" ")
-                vector = vector_arr[0:(len(vector_arr)-2)]
+                vector = vector_arr[0:(len(vector_arr)-1)]
                 # print(vector)
 
                 if data_type == "train":

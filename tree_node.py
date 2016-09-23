@@ -19,6 +19,12 @@ class TreeNode:
         self.children = {}
         return
 
+    def __str__(self, level=0):
+        ret = "\t"*level+repr("Split Feature Index: " + str(self.split_feature_index) + "| Class:" + self.class_label)+"\n"
+        for child in self.children:
+            ret += "feature value: " + child + "->" + self.children[child].__str__(level+1)
+        return ret
+
     def set_split_feature_index(self, index):
         self.split_feature_index = index
 
@@ -30,4 +36,5 @@ class TreeNode:
 
     def set_class_label(self, label):
         self.class_label = label
+
 
