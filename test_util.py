@@ -49,11 +49,13 @@ class TestUtil:
 
     def classify_data_set(self, data_set, decision_tree):
 
+        GlobalVectors.clear_test_data_vector()
+
         for data_item in data_set:
             test_data = self.classify_data_item(data_item, decision_tree)
             GlobalVectors.test_data_vector.append(test_data)
 
-        print(GlobalVectors.test_data_vector)
+        # print(GlobalVectors.test_data_vector)
 
     def get_accuracy(self):
 
@@ -65,6 +67,42 @@ class TestUtil:
         accuracy = (correct_classification_count/float(len(GlobalVectors.test_data_vector))) * 100
 
         return accuracy
+
+    def get_true_negative_count(self):
+
+        true_negative_count = 0
+        for data_item in GlobalVectors.test_data_vector:
+            if data_item.is_true_negative:
+                true_negative_count += 1
+
+        return true_negative_count
+
+    def get_true_positive_count(self):
+
+        true_positive_count = 0
+        for data_item in GlobalVectors.test_data_vector:
+            if data_item.is_true_positive:
+                true_positive_count += 1
+
+        return true_positive_count
+
+    def get_false_positive_count(self):
+
+        false_positive_count = 0
+        for data_item in GlobalVectors.test_data_vector:
+            if data_item.is_false_positive:
+                false_positive_count += 1
+
+        return false_positive_count
+
+    def get_false_negative_count(self):
+
+        false_negative_count = 0
+        for data_item in GlobalVectors.test_data_vector:
+            if data_item.is_false_negative:
+                false_negative_count += 1
+
+        return false_negative_count
 
 
 

@@ -1,6 +1,6 @@
 __author__ = 'mangirish_wagle'
 
-from monks_data_handler import MonksDataHandler
+from data_import_handler import DataImportHandler
 from global_vectors import GlobalVectors
 
 import math
@@ -99,7 +99,7 @@ class EvalUtil:
 
 # Testing with main
 def main():
-    monks_handler = MonksDataHandler()
+    monks_handler = DataImportHandler()
     monks_handler.import_monks_data("1", "train")
     evalutil = EvalUtil()
 

@@ -3,7 +3,7 @@ __author__ = 'mangirish_wagle'
 from global_vectors import GlobalVectors
 
 
-class MonksDataHandler:
+class DataImportHandler:
 
     monks_data_location = "datasets/monks"
 
@@ -32,11 +32,41 @@ class MonksDataHandler:
 
         GlobalVectors.feature_names = name_vector
 
+        if data_type == "train":
+            GlobalVectors.clear_train_feature_vector()
+        elif data_type == "test":
+            GlobalVectors.clear_test_feature_vector()
+
         # Reading the data set file to store data in feature_vector in the specified format.
         with open(self.monks_data_location + "/monks-" + index + "." + data_type) as monks_file_data:
             for line in monks_file_data:
                 vector_arr = line.split(" ")
-                vector = vector_arr[1:8]
+                vector = vector_arr[1:(len(vector_arr)-1)]
+                # print(vector)
+
+                if data_type == "train":
+                    GlobalVectors.append_to_train_feature_vector(vector)
+                elif data_type == "test":
+                    GlobalVectors.append_to_test_feature_vector(vector)
+
+    def import_data(self, data_file_path, data_type):
+        """
+        Generic function to import training and test data.
+        :param data_file_path: path to the data file
+        :param data_type: test/ train
+        :return:
+        """
+
+        if data_type == "train":
+            GlobalVectors.clear_train_feature_vector()
+        elif data_type == "test":
+            GlobalVectors.clear_test_feature_vector()
+
+        # Reading the data set file to store data in feature_vector in the specified format.
+        with open(data_file_path) as monks_file_data:
+            for line in monks_file_data:
+                vector_arr = line.split(" ")
+                vector = vector_arr[1:(len(vector_arr)-1)]
                 # print(vector)
 
                 if data_type == "train":
@@ -47,8 +77,8 @@ class MonksDataHandler:
 
 # Testing with main
 def main():
-    monks_handler = MonksDataHandler()
-    monks_handler.import_monks_data("1", "test")
+    monks_handler = DataImportHandler()
+    monks_handler.import_data(monks_handler.monks_data_location + "/monks-1.test", "test")
     print(GlobalVectors.feature_names)
     print(GlobalVectors.test_feature_vectors)
 

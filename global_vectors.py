@@ -46,3 +46,21 @@ class GlobalVectors:
         GlobalVectors.test_feature_vectors.append(vector)
         return
 
+    @staticmethod
+    def clear_train_feature_vector():
+        del GlobalVectors.train_feature_vectors
+        GlobalVectors.train_feature_vectors = []
+        return
+
+    @staticmethod
+    def clear_test_feature_vector():
+        del GlobalVectors.test_feature_vectors
+        GlobalVectors.test_feature_vectors = []
+        return
+
+    @staticmethod
+    def clear_test_data_vector():
+        del GlobalVectors.test_data_vector
+        GlobalVectors.test_data_vector = []
+        return
+

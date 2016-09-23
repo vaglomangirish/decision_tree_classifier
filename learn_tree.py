@@ -2,7 +2,7 @@ __author__ = 'mangirish_wagle'
 
 from tree_node import TreeNode
 from global_vectors import GlobalVectors
-from monks_data_handler import MonksDataHandler
+from data_import_handler import DataImportHandler
 from eval_util import EvalUtil
 from data_utils import DataUtils
 from test_util import TestUtil
@@ -51,7 +51,7 @@ class LearnTree:
 
     def create_node(self, data_set, max_depth, feature_index_list):
 
-        #tree_node = None
+        # tree_node = None
 
         is_termination_condition, positive, negative = self.test_termination_condition(data_set,
                                                                                       max_depth, feature_index_list)
@@ -80,21 +80,26 @@ class LearnTree:
                 else:
                     tree_node.append_child(value, None)
 
-
         return tree_node
+
+    def print_confusion_matrix(self):
+        t_util = TestUtil()
+        print("{0:20s} {1:18s} {2:18s}".format("", "Predicted Negative", "Predicted Positive"))
+        print("{0:20s} {1:18d} {2:18d}".format("Actual Negative", t_util.get_true_negative_count(), t_util.get_false_positive_count()))
+        print("{0:20s} {1:18d} {2:18d}".format("Actual Positive", t_util.get_false_negative_count(), t_util.get_true_positive_count()))
 
 
 # Testing with main
 def main():
 
-    monks_handler = MonksDataHandler()
-    monks_handler.import_monks_data("", "train")
-    monks_handler.import_monks_data("1", "test")
+    monks_handler = DataImportHandler()
+    monks_handler.import_monks_data("3", "train")
+    monks_handler.import_monks_data("3", "test")
 
     l_tree = LearnTree()
     t_util = TestUtil()
 
-    l_tree.create_decision_tree(GlobalVectors.train_feature_vectors, 6)
+    l_tree.create_decision_tree(GlobalVectors.train_feature_vectors, 3)
     # l_tree.is_pure_class(GlobalVectors.feature_vectors)
 
     t_util.classify_data_set(GlobalVectors.test_feature_vectors, l_tree.decision_tree)
@@ -103,7 +108,8 @@ def main():
 
     # print(GlobalVectors.test_data_vector)
 
-    print(t_util.get_accuracy())
+    # print(t_util.get_accuracy())
+    l_tree.print_confusion_matrix()
 
 
 if __name__ == "__main__": main()
