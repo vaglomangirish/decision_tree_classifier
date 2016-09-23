@@ -1,0 +1,133 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     car_data-weka.filters.unsupervised.attribute.NumericToNominal-Rfirst-last-weka.filters.unsupervised.attribute.StringToNominal-Rlast-weka.filters.unsupervised.attribute.StringToNominal-R3-4
+Instances:    1728
+Attributes:   7
+              att1
+              att2
+              att3
+              att4
+              att5
+              att6
+              att7
+Test mode:    evaluate on training data
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+att1 = vhigh: NOT+AF8-GOOD (432.0)
+att1 = high: NOT+AF8-GOOD (432.0)
+att1 = med
+|   att2 = vhigh: NOT+AF8-GOOD (108.0)
+|   att2 = high: NOT+AF8-GOOD (108.0)
+|   att2 = med
+|   |   att6 = low: NOT+AF8-GOOD (36.0)
+|   |   att6 = med: NOT+AF8-GOOD (36.0)
+|   |   att6 = high
+|   |   |   att5 = small: NOT+AF8-GOOD (12.0)
+|   |   |   att5 = med
+|   |   |   |   att4 = 2: NOT+AF8-GOOD (4.0)
+|   |   |   |   att4 = 4: NOT+AF8-GOOD (4.0/2.0)
+|   |   |   |   att4 = more: GOOD (4.0/1.0)
+|   |   |   att5 = big
+|   |   |   |   att4 = 2: NOT+AF8-GOOD (4.0)
+|   |   |   |   att4 = 4: GOOD (4.0)
+|   |   |   |   att4 = more: GOOD (4.0)
+|   att2 = low
+|   |   att6 = low: NOT+AF8-GOOD (36.0)
+|   |   att6 = med
+|   |   |   att5 = small: NOT+AF8-GOOD (12.0)
+|   |   |   att5 = med
+|   |   |   |   att4 = 2: NOT+AF8-GOOD (4.0)
+|   |   |   |   att4 = 4: NOT+AF8-GOOD (4.0/2.0)
+|   |   |   |   att4 = more: GOOD (4.0/1.0)
+|   |   |   att5 = big
+|   |   |   |   att4 = 2: NOT+AF8-GOOD (4.0)
+|   |   |   |   att4 = 4: GOOD (4.0)
+|   |   |   |   att4 = more: GOOD (4.0)
+|   |   att6 = high
+|   |   |   att4 = 2: NOT+AF8-GOOD (12.0)
+|   |   |   att4 = 4: GOOD (12.0)
+|   |   |   att4 = more: GOOD (12.0/1.0)
+att1 = low
+|   att6 = low: NOT+AF8-GOOD (144.0)
+|   att6 = med
+|   |   att2 = vhigh: NOT+AF8-GOOD (36.0)
+|   |   att2 = high: NOT+AF8-GOOD (36.0)
+|   |   att2 = med
+|   |   |   att5 = small: NOT+AF8-GOOD (12.0)
+|   |   |   att5 = med
+|   |   |   |   att4 = 2: NOT+AF8-GOOD (4.0)
+|   |   |   |   att4 = 4: NOT+AF8-GOOD (4.0/2.0)
+|   |   |   |   att4 = more: GOOD (4.0/1.0)
+|   |   |   att5 = big
+|   |   |   |   att4 = 2: NOT+AF8-GOOD (4.0)
+|   |   |   |   att4 = 4: GOOD (4.0)
+|   |   |   |   att4 = more: GOOD (4.0)
+|   |   att2 = low
+|   |   |   att5 = small: NOT+AF8-GOOD (12.0)
+|   |   |   att5 = med
+|   |   |   |   att4 = 2: NOT+AF8-GOOD (4.0)
+|   |   |   |   att4 = 4: NOT+AF8-GOOD (4.0/2.0)
+|   |   |   |   att4 = more: GOOD (4.0/1.0)
+|   |   |   att5 = big
+|   |   |   |   att4 = 2: NOT+AF8-GOOD (4.0)
+|   |   |   |   att4 = 4: GOOD (4.0)
+|   |   |   |   att4 = more: GOOD (4.0)
+|   att6 = high
+|   |   att4 = 2: NOT+AF8-GOOD (48.0)
+|   |   att4 = 4
+|   |   |   att2 = vhigh: NOT+AF8-GOOD (12.0)
+|   |   |   att2 = high
+|   |   |   |   att5 = small: NOT+AF8-GOOD (4.0)
+|   |   |   |   att5 = med: NOT+AF8-GOOD (4.0/2.0)
+|   |   |   |   att5 = big: GOOD (4.0)
+|   |   |   att2 = med: GOOD (12.0)
+|   |   |   att2 = low: GOOD (12.0)
+|   |   att4 = more
+|   |   |   att2 = vhigh: NOT+AF8-GOOD (12.0)
+|   |   |   att2 = high
+|   |   |   |   att5 = small: NOT+AF8-GOOD (4.0)
+|   |   |   |   att5 = med: GOOD (4.0/1.0)
+|   |   |   |   att5 = big: GOOD (4.0)
+|   |   |   att2 = med: GOOD (12.0/1.0)
+|   |   |   att2 = low: GOOD (12.0/1.0)
+
+Number of Leaves  : 	54
+
+Size of the tree : 	78
+
+
+Time taken to build model: 0.01 seconds
+
+=== Evaluation on training set ===
+
+Time taken to test model on training data: 0.01 seconds
+
+=== Summary ===
+
+Correctly Classified Instances        1710               98.9583 %
+Incorrectly Classified Instances        18                1.0417 %
+Kappa statistic                          0.9267
+Mean absolute error                      0.0133
+Root mean squared error                  0.0816
+Relative absolute error                  9.2768 %
+Root relative squared error             30.5017 %
+Total Number of Instances             1728     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.995    0.075    0.994      0.995    0.994      0.927    0.999     1.000     NOT+AF8-GOOD
+                 0.925    0.005    0.939      0.925    0.932      0.927    0.999     0.978     GOOD
+Weighted Avg.    0.990    0.069    0.990      0.990    0.990      0.927    0.999     0.998     
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 1586    8 |    a = NOT+AF8-GOOD
+   10  124 |    b = GOOD
+
