@@ -42,7 +42,7 @@ class Main:
         print("Decision tree:")
         l_tree.print_decision_tree(l_tree.decision_tree)
 
-        print("Accuracy for depth : " + str(t_util.get_accuracy()))
+        print("Percentage Accuracy for depth : " + str(t_util.get_accuracy()))
 
         print("")
         print("Confusion matrix:")
