@@ -1,0 +1,226 @@
+###########################################
+   MONKS DATA SET
+###########################################
+Showing analysis for Monks-1 and depth 0
+Metrics for Depth- 0
+
+Decision tree:
+'Split Feature Index: 5| Class:1'
+
+Percentage Accuracy for depth : 50.0
+
+Confusion matrix:
+                     Predicted Negative Predicted Positive
+Actual Negative                       0                216
+Actual Positive                       0                216
+
+--------------------------
+Showing analysis for Monks-1 and depth 1
+Metrics for Depth- 1
+
+Percentage Accuracy for depth : 75.0
+
+Confusion matrix:
+                     Predicted Negative Predicted Positive
+Actual Negative                     216                  0
+Actual Positive                     108                108
+
+--------------------------
+Showing analysis for Monks-1 and depth 2
+Metrics for Depth- 2
+
+Percentage Accuracy for depth : 75.0
+
+Confusion matrix:
+                     Predicted Negative Predicted Positive
+Actual Negative                     216                  0
+Actual Positive                     108                108
+
+--------------------------
+Showing analysis for Monks-1 and depth 3
+Metrics for Depth- 3
+
+Percentage Accuracy for depth : 66.6666666667
+
+Confusion matrix:
+                     Predicted Negative Predicted Positive
+Actual Negative                     144                 72
+Actual Positive                      72                144
+
+--------------------------
+Showing analysis for Monks-1 and depth 4
+Metrics for Depth- 4
+
+Percentage Accuracy for depth : 66.6666666667
+
+Confusion matrix:
+                     Predicted Negative Predicted Positive
+Actual Negative                     144                 72
+Actual Positive                      72                144
+###########################
+Showing analysis for Monks-2 and depth 0
+Metrics for Depth- 0
+
+Decision tree:
+'Split Feature Index: 5| Class:0'
+
+Percentage Accuracy for depth : 67.1296296296
+
+Confusion matrix:
+                     Predicted Negative Predicted Positive
+Actual Negative                     290                  0
+Actual Positive                     142                  0
+
+--------------------------
+Showing analysis for Monks-2 and depth 1
+Metrics for Depth- 1
+
+Percentage Accuracy for depth : 59.7222222222
+
+Confusion matrix:
+                     Predicted Negative Predicted Positive
+Actual Negative                     220                 70
+Actual Positive                     104                 38
+
+--------------------------
+Showing analysis for Monks-2 and depth 2
+Metrics for Depth- 2
+
+Percentage Accuracy for depth : 67.1296296296
+
+Confusion matrix:
+                     Predicted Negative Predicted Positive
+Actual Negative                     290                  0
+Actual Positive                     142                  0
+
+--------------------------
+Showing analysis for Monks-2 and depth 3
+Metrics for Depth- 3
+
+Percentage Accuracy for depth : 67.1296296296
+
+Confusion matrix:
+                     Predicted Negative Predicted Positive
+Actual Negative                     290                  0
+Actual Positive                     142                  0
+
+--------------------------
+Showing analysis for Monks-2 and depth 4
+Metrics for Depth- 4
+
+Percentage Accuracy for depth : 67.1296296296
+
+Confusion matrix:
+                     Predicted Negative Predicted Positive
+Actual Negative                     290                  0
+Actual Positive                     142                  0
+###########################
+Showing analysis for Monks-3 and depth 0
+Metrics for Depth- 0
+
+Percentage Accuracy for depth : 47.2222222222
+
+Confusion matrix:
+                     Predicted Negative Predicted Positive
+Actual Negative                     204                  0
+Actual Positive                     228                  0
+
+--------------------------
+Showing analysis for Monks-3 and depth 1
+Metrics for Depth- 1
+
+Percentage Accuracy for depth : 80.5555555556
+
+Confusion matrix:
+                     Predicted Negative Predicted Positive
+Actual Negative                     132                 72
+Actual Positive                      12                216
+
+--------------------------
+Showing analysis for Monks-3 and depth 2
+Metrics for Depth- 2
+
+Percentage Accuracy for depth : 80.5555555556
+
+Confusion matrix:
+                     Predicted Negative Predicted Positive
+Actual Negative                     132                 72
+Actual Positive                      12                216
+
+--------------------------
+Showing analysis for Monks-3 and depth 3
+Metrics for Depth- 3
+
+Percentage Accuracy for depth : 80.5555555556
+
+Confusion matrix:
+                     Predicted Negative Predicted Positive
+Actual Negative                     132                 72
+Actual Positive                      12                216
+
+--------------------------
+Showing analysis for Monks-3 and depth 4
+Metrics for Depth- 4
+
+Percentage Accuracy for depth : 63.8888888889
+
+Confusion matrix:
+                     Predicted Negative Predicted Positive
+Actual Negative                     168                 36
+Actual Positive                     120                108
+
+###########################################
+   CUSTOM CARS DATA SET
+###########################################
+Showing analysis for cars and depth 0
+Metrics for Depth- 0
+
+Decision tree:
+'Split Feature Index: 1| Class:0'
+
+Percentage Accuracy for depth : 90.0
+
+Confusion matrix:
+                     Predicted Negative Predicted Positive
+Actual Negative                     180                  0
+Actual Positive                      20                  0
+--------------------------
+Showing analysis for cars and depth 1
+Metrics for Depth- 1
+
+Percentage Accuracy for depth : 90.0
+
+Confusion matrix:
+                     Predicted Negative Predicted Positive
+Actual Negative                     180                  0
+Actual Positive                      20                  0
+--------------------------
+Showing analysis for cars and depth 2
+Metrics for Depth- 2
+
+Percentage Accuracy for depth : 90.0
+
+Confusion matrix:
+                     Predicted Negative Predicted Positive
+Actual Negative                     180                  0
+Actual Positive                      20                  0
+--------------------------
+Showing analysis for cars and depth 3
+Metrics for Depth- 3
+
+Percentage Accuracy for depth : 90.0
+
+Confusion matrix:
+                     Predicted Negative Predicted Positive
+Actual Negative                     180                  0
+Actual Positive                      20                  0
+--------------------------
+Showing analysis for cars and depth 4
+Metrics for Depth- 4
+
+Percentage Accuracy for depth : 90.0
+
+Confusion matrix:
+                     Predicted Negative Predicted Positive
+Actual Negative                     180                  0
+Actual Positive                      20                  0
