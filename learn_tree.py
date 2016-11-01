@@ -120,6 +120,7 @@ class LearnTree:
 # Testing with main
 def main():
 
+    """
     monks_handler = DataImportHandler()
     monks_handler.import_monks_data("3", "train")
     monks_handler.import_monks_data("3", "test")
@@ -138,6 +139,29 @@ def main():
 
     # print(t_util.get_accuracy())
     l_tree.print_confusion_matrix()
+
+    """
+
+    data_handler = DataImportHandler()
+    data_handler.import_data("datasets/mushroom/agaricuslepiotatrain1_cleaned.csv", "train", ",");
+
+    l_tree = LearnTree()
+    t_util = TestUtil()
+
+    l_tree.create_decision_tree(GlobalVectors.train_feature_vectors, 6)
+
+    l_tree.print_decision_tree(l_tree.decision_tree)
+
+    # l_tree.is_pure_class(GlobalVectors.feature_vectors)
+
+    #t_util.classify_data_set(GlobalVectors.test_feature_vectors, l_tree.decision_tree)
+
+    #l_tree.print_decision_tree(l_tree.decision_tree)
+
+    # print(GlobalVectors.test_data_vector)
+
+    # print(t_util.get_accuracy())
+    #l_tree.print_confusion_matrix()
 
 
 if __name__ == "__main__":

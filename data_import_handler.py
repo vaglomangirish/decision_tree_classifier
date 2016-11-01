@@ -51,7 +51,7 @@ class DataImportHandler:
                 elif data_type == "test":
                     GlobalVectors.append_to_test_feature_vector(vector)
 
-    def import_data(self, data_file_path, data_type):
+    def import_data(self, data_file_path, data_type, delim=" "):
         """
         Generic function to import training and test data.
         :param data_file_path: path to the data file
@@ -68,7 +68,8 @@ class DataImportHandler:
         with open(data_file_path) as monks_file_data:
             for line in monks_file_data:
                 line = line.strip()
-                vector_arr = line.split(" ")
+                # vector_arr = line.split(" ")
+                vector_arr = line.split(delim)
                 vector = vector_arr[0:(len(vector_arr)-1)]
                 # print(vector)
 
