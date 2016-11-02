@@ -28,6 +28,7 @@ class Bagging:
 
         bootstrap_feature_vectors = []
 
+        # Sampling random bootstraps.
         for k in xrange(size):
             rand_index = random.randint(0, (len(GlobalVectors.train_feature_vectors) - 1))
             bootstrap_feature_vectors.append(GlobalVectors.train_feature_vectors[rand_index])

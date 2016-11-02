@@ -17,6 +17,10 @@ For building your bags numpy's random module will be helpful.
 
 import sys, os;
 
+from data_import_handler import DataImportHandler
+from global_vectors import GlobalVectors
+from bagging import Bagging
+
 '''
 Function: load_and_split_data(datapath)
 datapath: (String) the location of the UCI mushroom data set directory in memory
@@ -46,8 +50,23 @@ Nothing is returned, but the accuracy of the learned ensemble model is printed
 to the screen.
 '''
 def learn_bagged(tdepth, numbags, datapath):
-    pass;
 
+    data_handler = DataImportHandler()
+
+    # Importing train data.
+    data_handler.import_mushroom_data(datapath + "/agaricuslepiotatrain1.csv", "train", ",");
+
+    bagg = Bagging()
+
+    # Learning bags.
+    bagg.bagged_learn(tdepth, numbags)
+
+    # Importing test data.
+    data_handler.import_mushroom_data(datapath + "/agaricuslepiotatest1.csv", "test", ",");
+    bagg.classify_data_set(GlobalVectors.test_feature_vectors)
+
+    # Printing confusion matrix.
+    bagg.print_confusion_matrix()
 
 '''
 Function: learn_boosted(tdepth, numtrees, datapath)
@@ -73,7 +92,7 @@ if __name__ == "__main__":
     # Get the ensemble type
     entype = sys.argv[1];
     # Get the depth of the trees
-    tdepth = int(sys.arg[2]);
+    tdepth = int(sys.argv[2]);
     # Get the number of bags or trees
     nummodels = int(sys.argv[3]);
     # Get the location of the data set
