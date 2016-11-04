@@ -37,7 +37,7 @@ class LearnTree:
 
         return termination, class_label
 
-    def create_decision_tree(self, data_set, max_depth):
+    def create_decision_tree(self, data_set, max_depth, boost=False):
         """
         Wrapper function that calls the algorithm to construct the decision tree.
         :param data_set:
@@ -51,9 +51,9 @@ class LearnTree:
         for index in xrange(1, len(data_set[0])):
             init_index_list.append(index)
 
-        self.decision_tree = self.create_node(data_set, max_depth, init_index_list)
+        self.decision_tree = self.create_node(data_set, max_depth, init_index_list, boost)
 
-    def create_node(self, data_set, max_depth, feature_index_list):
+    def create_node(self, data_set, max_depth, feature_index_list, boost=False):
         """
         Recursive function that constructs the decision tree by DFS approach by setting respective parameters
         and branching based on information gain and entropy.
@@ -72,7 +72,7 @@ class LearnTree:
         eval_util = EvalUtil()
         data_util = DataUtils()
 
-        max_info_gain_index = eval_util.get_split_attribute_index(data_set, feature_index_list)
+        max_info_gain_index = eval_util.get_split_attribute_index(data_set, feature_index_list, boost)
 
         # print max_info_gain_index
         tree_node.set_split_feature_index(max_info_gain_index)

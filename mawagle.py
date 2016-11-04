@@ -20,6 +20,7 @@ import sys, os;
 from data_import_handler import DataImportHandler
 from global_vectors import GlobalVectors
 from bagging import Bagging
+from test_util import TestUtil
 
 '''
 Function: load_and_split_data(datapath)
@@ -35,6 +36,8 @@ value is treated as its own attribute value.
 Two nested lists are returned. The first list represents the training set and
 the second list represents the test set.
 '''
+
+
 def load_data(datapath):
     pass
 
@@ -49,6 +52,8 @@ This function will manage coordinating the learning of the bagged ensemble.
 Nothing is returned, but the accuracy of the learned ensemble model is printed
 to the screen.
 '''
+
+
 def learn_bagged(tdepth, numbags, datapath):
 
     data_handler = DataImportHandler()
@@ -65,6 +70,11 @@ def learn_bagged(tdepth, numbags, datapath):
     data_handler.import_mushroom_data(datapath + "/agaricuslepiotatest1.csv", "test", ",");
     bagg.classify_data_set(GlobalVectors.test_feature_vectors)
 
+    # Print Accuracy
+    t_util = TestUtil()
+    print("Accuracy of the bagged learn: " + str(t_util.get_accuracy()))
+    print("")
+
     # Printing confusion matrix.
     bagg.print_confusion_matrix()
 
@@ -79,6 +89,8 @@ This function wil manage coordinating the learning of the boosted ensemble.
 Nothing is returned, but the accuracy of the learned ensemble model is printed
 to the screen.
 '''
+
+
 def learn_boosted(tdepth, numtrees, datapath):
     pass;
 

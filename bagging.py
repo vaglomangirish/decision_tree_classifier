@@ -45,7 +45,9 @@ class Bagging:
             bootstrap_feature_vectors = self.get_bootstrap_sample(len(GlobalVectors.train_feature_vectors))
             tree = LearnTree()
             tree.create_decision_tree(bootstrap_feature_vectors, depth)
-            # tree.print_decision_tree(tree.decision_tree)
+
+            print("Bootstraping Sample " + str(k) + " Decision Tree:-")
+            tree.print_decision_tree(tree.decision_tree)
 
             self.tree_bags_list.append(tree)
 
@@ -90,6 +92,7 @@ class Bagging:
             # Traverse tree until it finds the leaf node or the split on the feature value is not found.
             while len(current_node.children) > 0 and split_feature_value in current_node.children:
                 current_node = current_node.children[split_feature_value]
+                split_feature_value = data_item[current_node.split_feature_index]
 
             if current_node.class_label not in result_dict:
                 result_dict[current_node.class_label] = 1
