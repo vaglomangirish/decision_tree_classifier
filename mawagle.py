@@ -20,6 +20,7 @@ import sys, os;
 from data_import_handler import DataImportHandler
 from global_vectors import GlobalVectors
 from bagging import Bagging
+from boosting import Boosting
 from test_util import TestUtil
 
 '''
@@ -56,6 +57,10 @@ to the screen.
 
 def learn_bagged(tdepth, numbags, datapath):
 
+    print("")
+    print("### Learning by Bagging ###")
+    print("")
+
     data_handler = DataImportHandler()
 
     # Importing train data.
@@ -72,9 +77,12 @@ def learn_bagged(tdepth, numbags, datapath):
 
     # Print Accuracy
     t_util = TestUtil()
-    print("Accuracy of the bagged learn: " + str(t_util.get_accuracy()))
+
+    print("")
+    print("Accuracy of the bagged learn in percentage: " + str(t_util.get_accuracy()))
     print("")
 
+    print("Confusion Matrix:")
     # Printing confusion matrix.
     bagg.print_confusion_matrix()
 
@@ -92,7 +100,35 @@ to the screen.
 
 
 def learn_boosted(tdepth, numtrees, datapath):
-    pass;
+
+    print("")
+    print("### Learning by Boosting ###")
+    print("")
+
+    data_handler = DataImportHandler()
+
+    # Importing train data.
+    data_handler.import_mushroom_data(datapath + "/agaricuslepiotatrain1.csv", "train", ",");
+
+    boost = Boosting()
+
+    # Learning bags.
+    boost.boosted_learn(tdepth,numtrees)
+
+    # Importing test data.
+    data_handler.import_mushroom_data(datapath + "/agaricuslepiotatest1.csv", "test", ",");
+    boost.classify_data_set(GlobalVectors.test_feature_vectors)
+
+    # Print Accuracy
+    t_util = TestUtil()
+
+    print("")
+    print("Accuracy of the boosted learn in percentage: " + str(t_util.get_accuracy()))
+    print("")
+
+    print("Confusion Matrix:")
+    # Printing confusion matrix.
+    boost.print_confusion_matrix()
 
 
 if __name__ == "__main__":
@@ -102,18 +138,18 @@ if __name__ == "__main__":
     # Ex. boost 1 10 mushrooms
 
     # Get the ensemble type
-    entype = sys.argv[1];
+    entype = sys.argv[1]
     # Get the depth of the trees
-    tdepth = int(sys.argv[2]);
+    tdepth = int(sys.argv[2])
     # Get the number of bags or trees
-    nummodels = int(sys.argv[3]);
+    nummodels = int(sys.argv[3])
     # Get the location of the data set
-    datapath = sys.argv[4];
+    datapath = sys.argv[4]
 
     # Check which type of ensemble is to be learned
     if entype == "bag":
         # Learned the bagged decision tree ensemble
-        learn_bagged(tdepth, nummodels, datapath);
+        learn_bagged(tdepth, nummodels, datapath)
     else:
         # Learned the boosted decision tree ensemble
-        learn_boosted(tdepth, nummodels, datapath);
+        learn_boosted(tdepth, nummodels, datapath)

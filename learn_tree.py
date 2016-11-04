@@ -72,22 +72,22 @@ class LearnTree:
         eval_util = EvalUtil()
         data_util = DataUtils()
 
-        max_info_gain_index = eval_util.get_split_attribute_index(data_set, feature_index_list, boost)
+        feature_split_index = eval_util.get_split_attribute_index(data_set, feature_index_list, boost)
 
-        # print max_info_gain_index
-        tree_node.set_split_feature_index(max_info_gain_index)
+        # print feature_split_index
+        tree_node.set_split_feature_index(feature_split_index)
 
-        split_feature_values = data_util.get_feature_discrete_values(data_set, max_info_gain_index)
+        split_feature_values = data_util.get_feature_discrete_values(data_set, feature_split_index)
 
         # tree_node.set_pos_neg(positive, negative)
 
         tree_node.set_class_label(class_label)
 
-        revised_index_list = [x for x in feature_index_list if x != max_info_gain_index]
+        revised_index_list = [x for x in feature_index_list if x != feature_split_index]
 
         if not is_termination_condition:
             for value in split_feature_values:
-                data_subset = data_util.get_data_subset(data_set, max_info_gain_index, value)
+                data_subset = data_util.get_data_subset(data_set, feature_split_index, value)
                 if len(data_subset) > 0:
                     child_node = self.create_node(data_subset, max_depth - 1, revised_index_list)
                     tree_node.append_child(value, child_node)

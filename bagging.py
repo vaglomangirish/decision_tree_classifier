@@ -46,8 +46,7 @@ class Bagging:
             tree = LearnTree()
             tree.create_decision_tree(bootstrap_feature_vectors, depth)
 
-            print("Bootstraping Sample " + str(k) + " Decision Tree:-")
-            tree.print_decision_tree(tree.decision_tree)
+            print("Bootstraping Sample and learning Decision Tree " + str(k))
 
             self.tree_bags_list.append(tree)
 
@@ -57,19 +56,20 @@ class Bagging:
         :return:
         """
 
-        majority_label = list(result_dict)[0]
+        majority_label_list = list()
         max_count = 0
 
         for label in result_dict:
-            if result_dict[label] >= max_count:
+            if result_dict[label] > max_count:
 
-                if result_dict[label] == max_count:
-                    majority_label = list([label, majority_label])[random.randint(0,1)]
-
-                majority_label = label
+                majority_label_list = list()
+                majority_label_list.append(label)
                 max_count = result_dict[label]
 
-        return majority_label
+            elif result_dict[label] == max_count:
+                majority_label_list.append(label)
+
+        return random.choice(majority_label_list)
 
     def classify_data_item(self, data_item, learn_tree_list):
         """
