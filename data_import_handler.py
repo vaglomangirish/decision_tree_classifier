@@ -51,7 +51,7 @@ class DataImportHandler:
                 elif data_type == "test":
                     GlobalVectors.append_to_test_feature_vector(vector)
 
-    def import_data(self, data_file_path, data_type):
+    def import_mushroom_data(self, data_file_path, data_type, delim=" "):
         """
         Generic function to import training and test data.
         :param data_file_path: path to the data file
@@ -65,11 +65,46 @@ class DataImportHandler:
             GlobalVectors.clear_test_feature_vector()
 
         # Reading the data set file to store data in feature_vector in the specified format.
-        with open(data_file_path) as monks_file_data:
-            for line in monks_file_data:
+        with open(data_file_path) as file_data:
+
+            # Skipping the header line
+            next(file_data)
+
+            for line in file_data:
                 line = line.strip()
-                vector_arr = line.split(" ")
-                vector = vector_arr[0:(len(vector_arr)-1)]
+                # vector_arr = line.split(" ")
+                vector_arr = line.split(delim)
+
+                # Vector format : [label, features...]
+                # Skipping Column 22 (bruises? - no)
+                vector = vector_arr[20:21] + vector_arr[0:20] + vector_arr[22:len(vector_arr)]
+
+                if data_type == "train":
+                    GlobalVectors.append_to_train_feature_vector(vector)
+                elif data_type == "test":
+                    GlobalVectors.append_to_test_feature_vector(vector)
+
+
+    def import_data(self, data_file_path, data_type, delim=" "):
+        """
+        Generic function to import training and test data.
+        :param data_file_path: path to the data file
+        :param data_type: test/ train
+        :return:
+        """
+
+        if data_type == "train":
+            GlobalVectors.clear_train_feature_vector()
+        elif data_type == "test":
+            GlobalVectors.clear_test_feature_vector()
+
+        # Reading the data set file to store data in feature_vector in the specified format.
+        with open(data_file_path) as file_data:
+            for line in file_data:
+                line = line.strip()
+                # vector_arr = line.split(" ")
+                vector_arr = line.split(delim)
+                vector = vector_arr[0:(len(vector_arr))]
                 # print(vector)
 
                 if data_type == "train":
@@ -80,10 +115,15 @@ class DataImportHandler:
 
 # Testing with main
 def main():
+    """
     monks_handler = DataImportHandler()
     monks_handler.import_data(monks_handler.monks_data_location + "/monks-1.test", "test")
     print(GlobalVectors.feature_names)
     print(GlobalVectors.test_feature_vectors)
+    """
+
+    data_handler = DataImportHandler()
+    data_handler.import_mushroom_data("datasets/mushroom/agaricuslepiotatest1.csv", "train", 21, ",")
 
 if __name__ == "__main__":
     main()

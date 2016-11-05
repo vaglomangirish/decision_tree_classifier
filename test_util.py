@@ -28,6 +28,7 @@ class TestUtil:
         # Traverse tree until it finds the leaf node or the split on the feature value is not found.
         while len(current_node.children) > 0 and split_feature_value in current_node.children:
             current_node = current_node.children[split_feature_value]
+            split_feature_value = data_item[current_node.split_feature_index]
 
         classified = current_node.class_label
 

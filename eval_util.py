@@ -2,8 +2,10 @@ __author__ = 'mangirish_wagle'
 
 from data_import_handler import DataImportHandler
 from global_vectors import GlobalVectors
+from feature_analysis import FeatureAnalysis
 
 import math
+import random
 
 
 class EvalUtil:
@@ -99,13 +101,32 @@ class EvalUtil:
 
         return neg_count
 
-    def get_split_attribute_index(self, data_set, index_list):
+    def get_split_attribute_index(self, data_set, index_list, boost=False):
         """
         Function that returns the split attribute index for a node.
         :param data_set:
         :param index_list:
         :return:
         """
+
+        # If boosting, return the index with minimum weighted error.
+        if boost:
+
+            min_weight_error = None
+            min_weight_error_index_list = list()
+
+            feat_analyze = FeatureAnalysis()
+
+            for index in index_list:
+                weight_error = feat_analyze.get_feature_weighted_error(index)
+                if min_weight_error is None or weight_error < min_weight_error:
+                    min_weight_error = weight_error
+                    min_weight_error_index_list = list()
+                    min_weight_error_index_list.append(index)
+                elif weight_error == min_weight_error:
+                    min_weight_error_index_list.append(index)
+
+            return random.choice(min_weight_error_index_list)
 
         max_info_gain = None
         max_info_gain_index = None

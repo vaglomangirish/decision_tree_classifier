@@ -37,7 +37,7 @@ class LearnTree:
 
         return termination, class_label
 
-    def create_decision_tree(self, data_set, max_depth):
+    def create_decision_tree(self, data_set, max_depth, boost=False):
         """
         Wrapper function that calls the algorithm to construct the decision tree.
         :param data_set:
@@ -51,9 +51,9 @@ class LearnTree:
         for index in xrange(1, len(data_set[0])):
             init_index_list.append(index)
 
-        self.decision_tree = self.create_node(data_set, max_depth, init_index_list)
+        self.decision_tree = self.create_node(data_set, max_depth, init_index_list, boost)
 
-    def create_node(self, data_set, max_depth, feature_index_list):
+    def create_node(self, data_set, max_depth, feature_index_list, boost=False):
         """
         Recursive function that constructs the decision tree by DFS approach by setting respective parameters
         and branching based on information gain and entropy.
@@ -72,22 +72,22 @@ class LearnTree:
         eval_util = EvalUtil()
         data_util = DataUtils()
 
-        max_info_gain_index = eval_util.get_split_attribute_index(data_set, feature_index_list)
+        feature_split_index = eval_util.get_split_attribute_index(data_set, feature_index_list, boost)
 
-        # print max_info_gain_index
-        tree_node.set_split_feature_index(max_info_gain_index)
+        # print feature_split_index
+        tree_node.set_split_feature_index(feature_split_index)
 
-        split_feature_values = data_util.get_feature_discrete_values(data_set, max_info_gain_index)
+        split_feature_values = data_util.get_feature_discrete_values(data_set, feature_split_index)
 
         # tree_node.set_pos_neg(positive, negative)
 
         tree_node.set_class_label(class_label)
 
-        revised_index_list = [x for x in feature_index_list if x != max_info_gain_index]
+        revised_index_list = [x for x in feature_index_list if x != feature_split_index]
 
         if not is_termination_condition:
             for value in split_feature_values:
-                data_subset = data_util.get_data_subset(data_set, max_info_gain_index, value)
+                data_subset = data_util.get_data_subset(data_set, feature_split_index, value)
                 if len(data_subset) > 0:
                     child_node = self.create_node(data_subset, max_depth - 1, revised_index_list)
                     tree_node.append_child(value, child_node)
@@ -120,6 +120,7 @@ class LearnTree:
 # Testing with main
 def main():
 
+    """
     monks_handler = DataImportHandler()
     monks_handler.import_monks_data("3", "train")
     monks_handler.import_monks_data("3", "test")
@@ -138,6 +139,29 @@ def main():
 
     # print(t_util.get_accuracy())
     l_tree.print_confusion_matrix()
+
+    """
+
+    data_handler = DataImportHandler()
+    data_handler.import_data("datasets/mushroom/agaricuslepiotatrain1_cleaned.csv", "train", ",");
+
+    l_tree = LearnTree()
+    t_util = TestUtil()
+
+    l_tree.create_decision_tree(GlobalVectors.train_feature_vectors, 6)
+
+    l_tree.print_decision_tree(l_tree.decision_tree)
+
+    # l_tree.is_pure_class(GlobalVectors.feature_vectors)
+
+    #t_util.classify_data_set(GlobalVectors.test_feature_vectors, l_tree.decision_tree)
+
+    #l_tree.print_decision_tree(l_tree.decision_tree)
+
+    # print(GlobalVectors.test_data_vector)
+
+    # print(t_util.get_accuracy())
+    #l_tree.print_confusion_matrix()
 
 
 if __name__ == "__main__":
