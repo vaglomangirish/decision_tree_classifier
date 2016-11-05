@@ -36,11 +36,20 @@ class Boosting:
         return alpha
 
     def initialize_weights(self):
+        """
+        Function that initializes the weights of the data points to 1/N where N is number of data points.
+        :return:
+        """
 
         for point in GlobalVectors.train_feature_vectors:
             GlobalVectors.train_weight_vector.append(float(1.0/len(GlobalVectors.train_feature_vectors)))
 
     def analyze_data_for_errors(self, tree):
+        """
+        Function that populates the errored index list which contains indices of all data points that are misclassified.
+        :param tree:
+        :return:
+        """
 
         test_util = TestUtil()
 
@@ -51,6 +60,10 @@ class Boosting:
                 self.errored_index_list.append(index)
 
     def get_global_weighted_error(self):
+        """
+        Function returns the sum of weights of all the misclassified points in the training set.
+        :return:
+        """
 
         # Initializing to very small valeu to avoid 0.
         weighted_error_sum = 0.0000000000001
@@ -62,6 +75,10 @@ class Boosting:
         return weighted_error_sum
 
     def get_total_weight_sum(self):
+        """
+        Function that returns sum of weights of all the points in dataset.
+        :return:
+        """
 
         sum = 0.0
 
@@ -71,6 +88,10 @@ class Boosting:
         return sum
 
     def normalize_weights(self):
+        """
+        Function that normalizes the updated weights in every iteration.
+        :return:
+        """
 
         total_weight = self.get_total_weight_sum()
 
@@ -78,6 +99,13 @@ class Boosting:
             GlobalVectors.train_weight_vector[index] /= total_weight
 
     def update_weights(self, alpha):
+        """
+        Function that updates weights of data points based on whether they are correctly or incorrectly classified.
+        For correct classification the weight is multiplied by e^-alpha.
+        For misclassification the weight is multiplied by e^alpha.
+        :param alpha:
+        :return:
+        """
 
         for index in xrange(len(GlobalVectors.train_weight_vector)):
 
@@ -87,6 +115,12 @@ class Boosting:
                 GlobalVectors.train_weight_vector[index] *= math.exp(alpha*(-1.0))
 
     def boosted_learn(self, depth, no_of_trees):
+        """
+        Wrapper function for the entire Adaboost learning procedure.
+        :param depth:
+        :param no_of_trees:
+        :return:
+        """
 
         self.initialize_weights()
 
@@ -108,6 +142,11 @@ class Boosting:
             self.tree_alpha_list.append(alpha)
 
     def get_boosted_classification(self, tree_classify_list):
+        """
+        Function that returns the ensemble result of all the iterative classifications in Adaboost.
+        :param tree_classify_list:
+        :return:
+        """
 
         sum_alpha = 0.0
 
@@ -197,6 +236,7 @@ class Boosting:
                                                t_util.get_true_positive_count()))
 
 
+# Unit Testing.
 def main():
     data_handler = DataImportHandler()
     data_handler.import_mushroom_data("datasets/mushroom/agaricuslepiotatrain1.csv", "train", ",");

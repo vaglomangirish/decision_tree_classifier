@@ -22,7 +22,8 @@ class Bagging:
 
     def get_bootstrap_sample(self, size):
         """
-        Function that returns a bootstrap sample of given size with replacement from training dataset.
+        Function that generates the bootstrap sample by bootstrapping with replacement.
+        :param size:
         :return:
         """
 
@@ -37,7 +38,9 @@ class Bagging:
 
     def bagged_learn(self, depth, no_of_bags):
         """
-        Returns
+        Wrapper function for the entire bagged learning procedure.
+        :param depth:
+        :param no_of_bags:
         :return:
         """
 
@@ -53,6 +56,7 @@ class Bagging:
     def get_majority_vote(self, result_dict):
         """
         Function that returns the majority vote for test data point classification using bagging.
+        :param result_dict:
         :return:
         """
 
@@ -144,7 +148,7 @@ class Bagging:
                                                t_util.get_true_positive_count()))
 
 
-
+# Unit Testing.
 def main():
 
     data_handler = DataImportHandler()
