@@ -40,7 +40,16 @@ the second list represents the test set.
 
 
 def load_data(datapath):
-    pass
+
+    data_handler = DataImportHandler()
+
+    # Importing train data.
+    data_handler.import_mushroom_data(datapath + "/agaricuslepiotatrain1.csv", "train", ",");
+
+    # Importing test data.
+    data_handler.import_mushroom_data(datapath + "/agaricuslepiotatest1.csv", "test", ",");
+
+    return [GlobalVectors.train_feature_vectors, GlobalVectors.test_feature_vectors]
 
 '''
 Function: learn_bagged(tdepth, numbags, datapath)
@@ -61,18 +70,14 @@ def learn_bagged(tdepth, numbags, datapath):
     print("### Learning by Bagging ###")
     print("")
 
-    data_handler = DataImportHandler()
-
-    # Importing train data.
-    data_handler.import_mushroom_data(datapath + "/agaricuslepiotatrain1.csv", "train", ",");
+    load_data(datapath)
 
     bagg = Bagging()
 
     # Learning bags.
     bagg.bagged_learn(tdepth, numbags)
 
-    # Importing test data.
-    data_handler.import_mushroom_data(datapath + "/agaricuslepiotatest1.csv", "test", ",");
+    # Classify the test data.
     bagg.classify_data_set(GlobalVectors.test_feature_vectors)
 
     # Print Accuracy
@@ -107,16 +112,14 @@ def learn_boosted(tdepth, numtrees, datapath):
 
     data_handler = DataImportHandler()
 
-    # Importing train data.
-    data_handler.import_mushroom_data(datapath + "/agaricuslepiotatrain1.csv", "train", ",");
+    load_data(datapath)
 
     boost = Boosting()
 
     # Learning bags.
     boost.boosted_learn(tdepth,numtrees)
 
-    # Importing test data.
-    data_handler.import_mushroom_data(datapath + "/agaricuslepiotatest1.csv", "test", ",");
+    # Classify the test data.
     boost.classify_data_set(GlobalVectors.test_feature_vectors)
 
     # Print Accuracy
